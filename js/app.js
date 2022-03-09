@@ -1,15 +1,14 @@
-
 function newItemCloseButton() {
-  var span = document.createElement('span');
+  var span = document.createElement("span");
 
-  span.className = 'close';
-  span.appendChild(document.createTextNode('\u00D7'));
+  span.className = "close";
+  span.appendChild(document.createTextNode("\u00D7"));
 
   return span;
 }
 
 function addCloseBtnToTodoItems() {
-  var todoItems = document.getElementsByTagName('li');
+  var todoItems = document.getElementsByTagName("li");
 
   for (var i = 0; i < todoItems.length; ++i) {
     todoItems[i].appendChild(newItemCloseButton());
@@ -17,39 +16,43 @@ function addCloseBtnToTodoItems() {
 }
 
 function handleClickCloseBtn() {
-  var closes = document.getElementsByClassName('close');
+  var closes = document.getElementsByClassName("close");
 
   for (var i = 0; i < closes.length; ++i) {
-    closes[i].onclick = function() {
+    closes[i].onclick = function () {
       var div = this.parentElement;
-      div.style.display = 'none';
-    }
+      div.style.display = "none";
+    };
   }
 }
 
 function handleClickTodoItem() {
-  var todoList = document.querySelector('ul');
+  var todoList = document.querySelector("ul");
 
-  todoList.addEventListener('click', function(event) {
-    if (event.target.tagName === 'LI') {
-      // Add the toggle below this comment: event.target.classList.toggle('class-name')
-      // YOUR CODE HERE (delete this comment)
-    }
-  }, false);
+  todoList.addEventListener(
+    "click",
+    function (event) {
+      if (event.target.tagName === "LI") {
+        // Add the toggle below this comment: event.target.classList.toggle('class-name')
+        event.target.classList.toggle("checked");
+      }
+    },
+    false
+  );
 }
 
 // Add new todo item when clicking on the "Add" button
 function newTodoItem() {
-  var li = document.createElement('li');
-  var inputValue = document.getElementById('todo-input').value;
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("todo-input").value;
   li.appendChild(document.createTextNode(inputValue));
 
-  if (inputValue === '') {
-    alert('You must write something!');
+  if (inputValue === "") {
+    alert("You must write something!");
   } else {
-    document.getElementById('todo-list').appendChild(li);
+    document.getElementById("todo-list").appendChild(li);
   }
-  document.getElementById('todo-input').value = '';
+  document.getElementById("todo-input").value = "";
 
   li.appendChild(newItemCloseButton());
   handleClickCloseBtn();
