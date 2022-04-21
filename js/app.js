@@ -33,7 +33,11 @@ function handleClickTodoItem() {
   todoList.addEventListener('click', function(event) {
     if (event.target.tagName === 'LI') {
       // Add the toggle below this comment: event.target.classList.toggle('class-name')
+<<<<<<< HEAD
       event.target.classList.toggle('checked')
+=======
+      event.target.classList.toggle('completed-item')
+>>>>>>> feature/feature02
     }
   }, false);
 }
