@@ -32,7 +32,7 @@ function handleClickTodoItem() {
 
   todoList.addEventListener('click', function(event) {
     if (event.target.tagName === 'LI') {
-		event.target.classList.toggle('checked')
+		event.target.classList.toggle('completed-item')
     }
   }, false);
 }
