@@ -34,7 +34,7 @@ function handleClickTodoItem() {
     if (event.target.tagName === 'LI') {
       // Add the toggle below this comment: event.target.classList.toggle('class-name')
       // YOUR CODE HERE (delete this comment)
-      event.target.classList.toggle('checked')
+      event.target.classList.toggle('completed-item')
     }
   }, false);
 }
