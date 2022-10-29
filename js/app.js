@@ -32,6 +32,7 @@ function handleClickTodoItem() {
 
   todoList.addEventListener('click', function(event) {
     if (event.target.tagName === 'LI') {
+      event.target.classList.toggle('completed-item');
       // Add the toggle below this comment: event.target.classList.toggle('class-name')
       // YOUR CODE HERE (delete this comment)
     }
