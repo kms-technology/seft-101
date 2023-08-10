@@ -65,7 +65,7 @@ ul li.checked::before {
 
 .header {
     /* Hotfix: change background color to green: #9acd32 */
-    background-color: blue;
+    background-color: #9acd32;
     padding: 30px 40px;
     color: white;
     text-align: center;
