@@ -1,0 +1,58 @@
+Vagrant.configure("2") do |config|
+    config.vm.define "server" do |server|
+        server.vm.box = "centos/7"
+        server.vm.network "private_network", ip: "172.31.1.130"
+        
+        server.vm.provider "virtualbox" do |vb|
+            vb.memory = 1024
+            vb.cpus = 1
+        end
+
+        server.vm.provision "shell", inline: <<-SHELL
+            echo "Provision done, please install Nagios Core and HTTPd"
+        SHELL
+    end
+
+    config.vm.define "client" do |client|
+        client.vm.box = "ubuntu/focal64"
+        client.vm.network "private_network", ip: "172.31.1.178"
+        
+        client.vm.provider "virtualbox" do |vb|
+            vb.memory = 1024
+            vb.cpus = 1
+        end
+
+        client.vm.provision "shell", inline: <<-SHELL
+            echo "Provision done, please install nginx and NRPE"
+        SHELL
+    end
+
+    config.vm.define "nagios" do |nagios|
+        nagios.vm.box = "centos/7"
+        nagios.vm.network "private_network", ip: "172.31.1.165"
+        
+        nagios.vm.provider "virtualbox" do |vb|
+            vb.memory = 1024
+            vb.cpus = 1
+        end
+
+        nagios.vm.provision "shell", inline: <<-SHELL
+            echo "Provision done, please install Nagios 3.0.6 and HTTPd"
+        SHELL
+    end
+
+    config.vm.define "lvm" do |lvm|
+        lvm.vm.box = "ubuntu/focal64"
+        lvm.vm.network "private_network", ip: "172.31.1.200"
+        
+        lvm.vm.provider "virtualbox" do |vb|
+            vb.memory = 1024
+            vb.cpus = 1
+        end
+
+        lvm.vm.provision "shell", inline: <<-SHELL
+            echo "Provision done, please proceed"
+        SHELL
+    end
+end
+    
